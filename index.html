@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURA - High Fashion & Luxury Store</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100" type="image/x-icon">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="top-announcement">
+    <p><i class="fa-solid fa-sparkles me-2"></i> Complimentary Worldwide Express Shipping On All Orders Above Rs. 10,000</p>
+  </div>
+
+  <!-- Ultra-Modern Header & Navigation -->
+  <header class="main-header">
+    <div class="header-container">
+      
+      <!-- Logo -->
+      <a class="brand-logo" href="#home">
+        Shoping-Website<span class="logo-dot">.</span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="nav-item active">Home</a>
+        <a href="#shop" class="nav-item">Shop Collection</a>
+        <a href="#categories" class="nav-item">Categories</a>
+        <a href="About.html" class="nav-item">About Us</a>
+        <a href="contact.html" class="nav-item">Contact</a>
+      </nav>
+
+      <!-- Right Action Utilities -->
+      <div class="header-actions">
+        <div class="cart-trigger" id="openCartDrawer">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span id="cart-count">0</span>
+        </div>
+        
+        <button class="mobile-toggle-btn" onclick="toggleMobileMenu()">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-section" id="home">
+    <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel" data-bs-interval="4000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=80" class="d-block w-100 hero-img" alt="Luxury Fashion">
+          <div class="hero-content">
+            <span class="hero-tag">NEW SEASON 2026</span>
+            <h1>Elegance In Every Detail</h1>
+            <p>Curated luxury apparel, chronographs, and high-street modern fashion pieces.</p>
+            <a href="#shop" class="btn hero-btn">Explore Shop <i class="fa-solid fa-arrow-right ms-2"></i></a>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1600&q=80" class="d-block w-100 hero-img" alt="Luxury Watches">
+          <div class="hero-content">
+            <span class="hero-tag">LIMITED EDITIONS</span>
+            <h1>Timeless Craftsmanship</h1>
+            <p>Precision-engineered watches designed for statement aesthetics.</p>
+            <a href="#shop" class="btn hero-btn">Discover Watches <i class="fa-solid fa-arrow-right ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Category Grid -->
+  <section class="categories-section py-5" id="categories">
+    <div class="container">
+      <div class="row g-4 text-center">
+        <div class="col-6 col-md-3">
+          <div class="modern-cat-card" onclick="filterCategory('clothing')">
+            <div class="cat-icon-wrapper"><i class="fa-solid fa-shirt"></i></div>
+            <h4>Apparel</h4>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="modern-cat-card" onclick="filterCategory('footwear')">
+            <div class="cat-icon-wrapper"><i class="fa-solid fa-shoe-prints"></i></div>
+            <h4>Footwear</h4>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="modern-cat-card" onclick="filterCategory('watches')">
+            <div class="cat-icon-wrapper"><i class="fa-solid fa-clock"></i></div>
+            <h4>Watches</h4>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="modern-cat-card" onclick="filterCategory('tech')">
+            <div class="cat-icon-wrapper"><i class="fa-solid fa-headphones"></i></div>
+            <h4>Audio & Tech</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search & Filter Controls -->
+  <div class="container mb-5">
+    <div class="search-filter-wrapper">
+      <div class="search-input-box">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input id="searchInput" type="search" placeholder="Search products, shoes, watches, hoodies...">
+      </div>
+      <select class="category-select" id="categoryFilter">
+        <option value="all">All Products</option>
+        <option value="clothing">Apparel</option>
+        <option value="footwear">Footwear</option>
+        <option value="watches">Watches</option>
+        <option value="tech">Audio & Tech</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Main Shopping Products Showcase -->
+  <section class="shop-section pb-5" id="shop">
+    <div class="container">
+      <div class="section-heading text-center mb-5" data-aos="fade-up">
+        <h2>Trending <span>Collection</span></h2>
+        <p>Hand-picked modern luxury items with worldwide quality assurance</p>
+      </div>
+
+      <div class="row g-4" id="productGrid">
+
+       <!-- Product 1 -->
+<div class="col-12 col-sm-6 col-lg-3 product-card-item" data-category="watches">
+  <div class="product-card">
+    <div class="card-image-box">
+      <span class="product-badge gold">BESTSELLER</span>
+      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600" alt="Watch">
+    </div>
+    <div class="card-details">
+      <h5>Obsidian Chronograph Watch</h5>
+      <div class="rating-stars mb-2">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+      </div>
+      <div class="card-footer-action">
+        <span class="price-tag">Rs. 8,999</span>
+        <button class="add-bag-btn" onclick="addToCart('Obsidian Chronograph Watch', 8999, 'qty-p1', '#p1')"><i class="fa-solid fa-plus me-1"></i> Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product 2 -->
+<div class="col-12 col-sm-6 col-lg-3 product-card-item" data-category="footwear">
+  <div class="product-card">
+    <div class="card-image-box">
+      <span class="product-badge">HOT</span>
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600" alt="Sneakers">
+    </div>
+    <div class="card-details">
+      <h5>Neon Pulse Sport Kicks</h5>
+      <div class="rating-stars mb-2">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+      </div>
+      <div class="card-footer-action">
+        <span class="price-tag">Rs. 11,499</span>
+        <button class="add-bag-btn" onclick="addToCart('Neon Pulse Sport Kicks', 11499, 'qty-p1', '#p1')"><i class="fa-solid fa-plus me-1"></i> Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product 3 -->
+<div class="col-12 col-sm-6 col-lg-3 product-card-item" data-category="clothing">
+  <div class="product-card">
+    <div class="card-image-box">
+      <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600" alt="Jacket">
+    </div>
+    <div class="card-details">
+      <h5>Biker Matte Leather Jacket</h5>
+      <div class="rating-stars mb-2">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+      </div>
+      <div class="card-footer-action">
+        <span class="price-tag">Rs. 14,999</span>
+        <button class="add-bag-btn" onclick="addToCart('Biker Matte Leather Jacket', 14999, 'qty-p1', '#p1')"><i class="fa-solid fa-plus me-1"></i> Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product 4 -->
+<div class="col-12 col-sm-6 col-lg-3 product-card-item" data-category="tech">
+  <div class="product-card">
+    <div class="card-image-box">
+      <span class="product-badge gold">NEW</span>
+      <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600" alt="Headphones">
+    </div>
+    <div class="card-details">
+      <h5>Studio Pro ANC Headphones</h5>
+      <div class="rating-stars mb-2">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+      </div>
+      <div class="card-footer-action">
+        <span class="price-tag">Rs. 18,500</span>
+        <button class="add-bag-btn" onclick="addToCart('Studio Pro ANC Headphones', 18500, 'qty-p1', '#p1')"><i class="fa-solid fa-plus me-1"></i> Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product 5 -->
+<div class="col-12 col-sm-6 col-lg-3 product-card-item" data-category="watches">
+  <div class="product-card">
+    <div class="card-image-box">
+      <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?w=600" alt="Watch">
+    </div>
+    <div class="card-details">
+      <h5>Silver Mesh Chrono Watch</h5>
+      <div class="rating-stars mb-2">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+      </div>
+      <div class="card-footer-action">
+        <span class="price-tag">Rs. 9,499</span>
+        <button class="add-bag-btn" onclick="addToCart('Silver Mesh Chrono Watch', 9499, 'qty-p1', '#p1')"><i class="fa-solid fa-plus me-1"></i> Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product 6 -->
+<div class="col-12 col-sm-6 col-lg-3 product-card-item" data-category="footwear">
+  <div class="product-card">
+    <div class="card-image-box">
+      <span class="product-badge">TRENDING</span>
+      <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=600" alt="White Shoes">
+    </div>
+    <div class="card-details">
+      <h5>Urban Minimal White Kicks</h5>
+      <div class="rating-stars mb-2">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+      </div>
+      <div class="card-footer-action">
+        <span class="price-tag">Rs. 10,999</span>
+        <button class="add-bag-btn" onclick="addToCart('Urban Minimal White Kicks', 10999, 'qty-p1', '#p1')"><i class="fa-solid fa-plus me-1"></i> Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product 7 -->
+
+<div class="col-12 col-sm-6 col-lg-3 product-card-item" data-category="clothing">
+  <div class="product-card">
+    <div class="card-image-box">
+      <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=600" alt="Cyber Oversized Hoodie">
+    </div>
+    <div class="card-details">
+      <h5>Cyber Oversized Hoodie</h5>
+      <div class="rating-stars mb-2">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+      </div>
+      <div class="card-footer-action">
+        <span class="price-tag">Rs. 5,999</span>
+        <button class="add-bag-btn" onclick="addToCart('Cyber Oversized Hoodie', 5999, 'qty-p1', '#p1')"><i class="fa-solid fa-plus me-1"></i> Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product 8 -->
+<div class="col-12 col-sm-6 col-lg-3 product-card-item" data-category="tech">
+  <div class="product-card">
+    <div class="card-image-box">
+      <span class="product-badge gold">BESTSELLER</span>
+      <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=600" alt="Earbuds">
+    </div>
+    <div class="card-details">
+      <h5>Spatial Wireless Earbuds</h5>
+      <div class="rating-stars mb-2">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+      </div>
+      <div class="card-footer-action">
+        <span class="price-tag">Rs. 7,499</span>
+        <button class="add-bag-btn" onclick="addToCart('Spatial Wireless Earbuds', 7499, 'qty-p1', '#p1')"><i class="fa-solid fa-plus me-1"></i> Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product 9 -->
+<div class="col-12 col-sm-6 col-lg-3 product-card-item" data-category="clothing">
+  <div class="product-card">
+    <div class="card-image-box">
+      <span class="product-badge">NEW</span>
+      <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600" alt="T-Shirt">
+    </div>
+    <div class="card-details">
+      <h5>Aesthetics Heavyweight Tee</h5>
+      <div class="rating-stars mb-2">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+      </div>
+      <div class="card-footer-action">
+        <span class="price-tag">Rs. 3,499</span>
+        <button class="add-bag-btn" onclick="addToCart('Aesthetics Heavyweight Tee', 3499, 'qty-p1', '#p1')"><i class="fa-solid fa-plus me-1"></i> Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product 10 -->
+<div class="col-12 col-sm-6 col-lg-3 product-card-item" data-category="watches">
+  <div class="product-card">
+    <div class="card-image-box">
+      <span class="product-badge gold">LIMITED</span>
+      <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600" alt="Gold Watch">
+    </div>
+    <div class="card-details">
+      <h5>Monarch Rose Gold Watch</h5>
+      <div class="rating-stars mb-2">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+      </div>
+      <div class="card-footer-action">
+        <span class="price-tag">Rs. 16,999</span>
+        <button class="add-bag-btn" onclick="addToCart('Monarch Rose Gold Watch', 16999, 'qty-p1', '#p1')"><i class="fa-solid fa-plus me-1"></i> Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product 11 -->
+<div class="col-12 col-sm-6 col-lg-3 product-card-item" data-category="footwear">
+  <div class="product-card">
+    <div class="card-image-box">
+      <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600" alt="Running Shoes">
+    </div>
+    <div class="card-details">
+      <h5>Phantom Performance Runners</h5>
+      <div class="rating-stars mb-2">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+      </div>
+      <div class="card-footer-action">
+        <span class="price-tag">Rs. 12,999</span>
+        <button class="add-bag-btn" onclick="addToCart('Phantom Performance Runners', 12999, 'qty-p1', '#p1')"><i class="fa-solid fa-plus me-1"></i> Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product 12 -->
+<div class="col-12 col-sm-6 col-lg-3 product-card-item" data-category="tech">
+  <div class="product-card">
+    <div class="card-image-box">
+      <span class="product-badge">HOT</span>
+      <img src="https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?w=600" alt="Speaker">
+    </div>
+    <div class="card-details">
+      <h5>Pulse Bass Portable Speaker</h5>
+      <div class="rating-stars mb-2">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+      </div>
+      <div class="card-footer-action">
+        <span class="price-tag">Rs. 9,999</span>
+        <button class="add-bag-btn" onclick="addToCart('Pulse Bass Portable Speaker', 9999, 'qty-p1', '#p1')"><i class="fa-solid fa-plus me-1"></i> Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product 13 -->
+<div class="col-12 col-sm-6 col-lg-3 product-card-item" data-category="clothing">
+  <div class="product-card">
+    <div class="card-image-box">
+      <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600" alt="Jacket">
+    </div>
+    <div class="card-details">
+      <h5>Winter Warm Trench Coat</h5>
+      <div class="rating-stars mb-2">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+      </div>
+      <div class="card-footer-action">
+        <span class="price-tag">Rs. 19,999</span>
+        <button class="add-bag-btn" onclick="addToCart('Winter Warm Trench Coat', 19999, 'qty-p1', '#p1')"><i class="fa-solid fa-plus me-1"></i> Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product 14 -->
+<div class="col-12 col-sm-6 col-lg-3 product-card-item" data-category="footwear">
+  <div class="product-card">
+    <div class="card-image-box">
+      <span class="product-badge gold">TRENDING</span>
+      <img src="https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=600" alt="Loafers">
+    </div>
+    <div class="card-details">
+      <h5>Classic Suede Loafers</h5>
+      <div class="rating-stars mb-2">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+      </div>
+      <div class="card-footer-action">
+        <span class="price-tag">Rs. 8,499</span>
+        <button class="add-bag-btn" onclick="addToCart('Classic Suede Loafers', 8499, 'qty-p1', '#p1')"><i class="fa-solid fa-plus me-1"></i> Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product 15 -->
+<div class="col-12 col-sm-6 col-lg-3 product-card-item" data-category="watches">
+  <div class="product-card">
+    <div class="card-image-box">
+      <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600" alt="Smart Watch">
+    </div>
+    <div class="card-details">
+      <h5>Cyber Smart Fitness Watch</h5>
+      <div class="rating-stars mb-2">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+      </div>
+      <div class="card-footer-action">
+        <span class="price-tag">Rs. 13,499</span>
+        <button class="add-bag-btn" onclick="addToCart('Cyber Smart Fitness Watch', 13499, 'qty-p1', '#p1')"><i class="fa-solid fa-plus me-1"></i> Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product 16 -->
+<div class="col-12 col-sm-6 col-lg-3 product-card-item" data-category="tech">
+  <div class="product-card">
+    <div class="card-image-box">
+      <span class="product-badge">BESTSELLER</span>
+      <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600" alt="Headset">
+    </div>
+    <div class="card-details">
+      <h5>Pro Gaming Wireless Headset</h5>
+      <div class="rating-stars mb-2">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+      </div>
+      <div class="card-footer-action">
+        <span class="price-tag">Rs. 15,999</span>
+        <button class="add-bag-btn" onclick="addToCart('Pro Gaming Wireless Headset', 15999, 'qty-p1', '#p1')"><i class="fa-solid fa-plus me-1"></i> Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Detail Modal -->
+  <div class="modal fade custom-modal" id="p1" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="row g-0">
+            <div class="col-md-6">
+              <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600" class="img-fluid h-100 w-100 object-fit-cover" alt="Watch">
+            </div>
+            <div class="col-md-6 p-4 p-lg-5 d-flex flex-column justify-content-center">
+              <button type="button" class="btn-close btn-close-white ms-auto mb-3" data-bs-dismiss="modal"></button>
+              <h3 class="modal-title mb-2">Obsidian Chronograph Watch</h3>
+              <p class="modal-price">Rs. 8,999</p>
+              <p class="modal-text">Made with ultra-durable matte stainless steel bezel, anti-reflective sapphire glass crystal, and water resistance up to 50 meters.</p>
+              
+              <div class="qty-counter d-flex align-items-center gap-3 my-4">
+                <button class="btn counter-btn" onclick="updateQty('p1', -1)">-</button>
+                <span id="qty-p1" class="fw-bold fs-5">1</span>
+                <button class="btn counter-btn" onclick="updateQty('p1', 1)">+</button>
+              </div>
+
+              <button class="btn modal-submit-btn w-100 py-3" onclick="addToCart('Obsidian Chronograph Watch', 8999, 'qty-p1', '#p1')">
+                <i class="fa-solid fa-bag-shopping me-2"></i> Add To Bag
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Drawer Overlay & Sidebar -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+
+  <div class="cart-drawer" id="cartSidebar">
+    <div class="cart-drawer-header">
+      <h4><i class="fa-solid fa-bag-shopping me-2"></i> Your Shopping Bag</h4>
+      <button class="close-drawer-btn" id="closeCartDrawer">&times;</button>
+    </div>
+    
+    <div class="cart-drawer-body" id="cartBody">
+      <div class="empty-cart-state text-center py-5">
+        <i class="fa-solid fa-bag-shopping fa-3x mb-3 text-muted"></i>
+        <p class="text-muted">Your shopping bag is currently empty.</p>
+      </div>
+    </div>
+
+    <div class="cart-drawer-footer">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <span class="fs-5 text-muted">Subtotal:</span>
+        <span class="fs-4 fw-bold text-gold" id="cartTotal">Rs. 0</span>
+      </div>
+      <button class="btn drawer-checkout-btn w-100 py-3" onclick="handleCheckout()">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="main-footer py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h3 class="footer-logo"><b>Shopping-Website</b><span class="logo-dot">.</span></h3>
+          <p class="text-white">High-end fashion, luxury wristwatches, sneakers, and futuristic tech lifestyle accessories.</p>
+        </div>
+        <div class="col-md-4">
+          <h5><b>Quick Links</b></h5>
+          <ul class="list-unstyled footer-nav">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#shop">Shop Collection</a></li>
+            <li><a href="About.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5><b>Contact Support</b></h5>
+          <p class="text-muted mb-2"><i class="fa-solid fa-phone me-2 text-gold"></i> +92 21 111 222 333</p>
+          <p class="text-muted mb-2"><i class="fa-solid fa-envelope me-2 text-gold"></i> support@aurastore.com</p>
+          <p class="text-muted"><i class="fa-solid fa-location-dot me-2 text-gold"></i> Karachi, Pakistan</p>
+        </div>
+      </div>
+      <hr class="my-4 border-secondary opacity-25">
+      <div class="text-center text-muted">
+        <p class="mb-0">&copy; 2026 AURA Luxury Store. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="script.js"></script>
+  <script>AOS.init();</script>
+</body>
+
+</html>
